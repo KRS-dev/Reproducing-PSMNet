@@ -37,3 +37,9 @@ GitHub repository of the code used in this paper can be found [here](https://git
 
 
 
+<figure>
+<img src="L.webp" id="fig:windtunnel"  height="300" width="400" alt="Schematic representation of the Low Turbulence Tunnel." /><figcaption aria-hidden="true">Schematic representation of the Low Turbulence Tunnel.</figcaption>
+</figure>
+
+
+
