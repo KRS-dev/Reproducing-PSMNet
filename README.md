@@ -4,7 +4,9 @@
 
 ## Pyramid network
 
-<img align="center" src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg" alt="Architecture overview of proposed PSMNet." Architecture overview of the proposed PSMNet.>
+<figure>
+<img src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg" id="fig:net" alt="Architecture overview of proposed PSMNet." /><figcaption aria-hidden="true">Architecture overview of the proposed PSMNet.</figcaption>
+</figure>
 
 ### Difference between ResNet and PSMNet
 
