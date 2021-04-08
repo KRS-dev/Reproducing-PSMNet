@@ -4,6 +4,8 @@
 
 ## Pyramid network
 
+<img align="center" src="https://user-images.githubusercontent.com/11732099/43501836-1d32897c-958a-11e8-8083-ad41ec26be17.jpg" alt="Architecture overview of proposed PSMNet." /><figcaption aria-hidden="true">Architecture overview of the proposed PSMNet.</figcaption>
+
 ### Difference between ResNet and PSMNet
 
 ## Pretrained model
@@ -25,9 +27,9 @@ GitHub repository of the code used in this paper can be found [here](https://git
 |:-------------------------------|:------------------------:|:---------------------------:|:-------:|
 | 1<sup>st </sup> Flat. Bend.    |          2.247           |            2.243            |   ...   |
 | 2<sup>nd </sup> Flat. Bend.    |          14.606          |           14.056            |   ...   |
-| 3<sup>*r**d*</sup> Flat. Bend. |          44.012          |           39.356            |   ...   |
-| 1<sup>*s**t*</sup> Torsion     |          31.146          |           31.046            |   ...   |
-| 1<sup>st </sup> Edge. Bend.    |          31.739          |           31.718            |   \-    |
+| 3<sup>rd</sup> Flat. Bend. |          44.012          |           39.356            |   ...   |
+| 1<sup>st</sup> Torsion     |          31.146          |           31.046            |   ...   |
+| 1<sup>st</sup> Edge. Bend.    |          31.739          |           31.718            |   \-    |
 
 
 
