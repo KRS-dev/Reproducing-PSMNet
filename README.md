@@ -12,7 +12,7 @@
 
 ## Pretrained model
 
-<div id="tab:results">
+
   
 |            |  Model  | SceneFlow | Kitti 2015 | Kitti 2012 |
 |:-----------|:--------|:---------:|:----------:|:----------:|
@@ -24,9 +24,7 @@
 
 Results using pre-trained models
 
-</div>
 
-<span id="tab:results" label="tab:results">\[tab:results\]</span>
 
 ### Sceneflow Performance
 
@@ -40,7 +38,6 @@ Results using pre-trained models
 ## Description of the paper
 The paper can be found [here](https://arxiv.org/abs/1803.08669).  
 GitHub repository of the code used in this paper can be found [here](https://github.com/JiaRenChang/PSMNet).
-
 
 
 
