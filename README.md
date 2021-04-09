@@ -14,7 +14,7 @@
 
 <div id="tab:results">
   
-               Results using pre-trained models
+
 |            |  Model  | SceneFlow | Kitti 2015 | Kitti 2012 |
 |:-----------|:--------|:---------:|:----------:|:----------:|
 | Batch size | Workers |    EPE    |    EPE     |    EPE     |
@@ -22,7 +22,7 @@
 |            |         |           |            |            |
 |            |         |           |            |            |
 |            |         |           |            |            |
-
+Results using pre-trained models
 
 </div>
 
