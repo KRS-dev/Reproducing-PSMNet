@@ -1,3 +1,6 @@
+<embed src="pdf/DL_project.pdf" width="500" height="375" 
+ type="application/pdf">
+
 # Introduction to disparity maps
 
 PSMNet is a Stereo Matching Network published by [Jia-Ren Chang and Yong-Sheng Che](https://arxiv.org/abs/1803.08669) in 2018. The goal
