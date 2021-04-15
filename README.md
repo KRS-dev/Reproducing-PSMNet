@@ -64,7 +64,7 @@ intermediate costs.
   width="\\textwidth"}
   [1]: #eq1:regression {reference-type="ref" reference="eq1:regression"}
   
-  <div id="tab:finetune">
+ <div id="tab:finetune">
 
 |                             | pretrained Kitti 2012 | fine tune: epoch 67 | fine tune: epoch 155 |
 |:----------------------------|:---------------------:|:-------------------:|:--------------------:|
