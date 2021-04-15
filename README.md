@@ -27,7 +27,7 @@ and today we are going to discuss reproducing PSMNet, a high performing
 Pyramid network on both Sceneflow and KITTI 2012/2015 stereo data-sets.
 
 <figure>
-<img src="images/example_disparity.png" id="fig:my_label" alt="Disparity map created by PSMNet. Images are from the sceneflow dataset." /><figcaption aria-hidden="true">Disparity map created by PSMNet. Images are from the sceneflow dataset.</figcaption>
+<img src="images/example_disparity.png" id="fig:my_label" alt="Disparity map created by PSMNet. Images are from the sceneflow dataset." /><figcaption>Disparity map created by PSMNet. Images are from the sceneflow dataset.</figcaption>
 </figure>
 
 # Pyramid network
@@ -45,7 +45,7 @@ features are combined into a 4D cost volume for each disparity level
 (HeightxWidthxFeaturexDisparity). The 3D CNN consists out of a multiple
 stackhourglass type 3D convolutions with residual connections. The final
 disparity is calculated using regression with the following formula
-[\[eq1:regression\]][1], where *D*<sub>*m**a**x*</sub> is the maximum
+, where *D*<sub>*max*</sub> is the maximum
 disparity the model can predict, *c*<sub>*d*</sub> the predicted cost
 for that disparity. This method is supposed to be more robust than
 classification .
@@ -59,7 +59,6 @@ regression predicted disparity, but earlier in the 3D CNN. The training
 cost was calculated as a combination of the final cost and the two
 intermediate costs.
 
-  [1]: #eq1:regression
  
  
 # Pretrained model
@@ -123,7 +122,7 @@ model. The cause of this factor is unknown to us, researchers on the
 Github page say that by training the model thems
 
   [PSMNet Github]: https://github.com/JiaRenChang/PSMNet
-  [1]: #eq1:regression
+  [1]: #fig:equation1
   [2]: #tab:results
   [Github Issue]: https://github.com/JiaRenChang/PSMNet/issues/64
   
