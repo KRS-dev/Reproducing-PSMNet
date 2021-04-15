@@ -164,8 +164,7 @@ top and bottom, and 50 pixels from the left and the right.
 <img src="images/Steve.JPG" id="fig:externaol data"  height="300" width="400" alt="Image provided by external expert" /><figcaption aria-hidden="true">Image provided by external expert</figcaption>
 </figure>
 
-The results for the pretrained SceneFlow model are given in and
-[\[fig: data\_scene2\]][3] respectively. It can be observed that the
+The results for the pretrained SceneFlow model are given in the two figures below. It can be observed that the
 shapes of the blade can not be recognised in the disparity maps. We
 expect one of the reasons for this to be, that the images were not
 rectified. Another possible explanation for these differences is that
@@ -183,6 +182,7 @@ the learned features will be different as well.
 
 # Fine tuning using pretrained Kitti 2012 model
 
+
 As an additional analyses it was chosen to examine the effects of fine
 tuning the given pretrained Kitti 2012 model. This model is already fine
 tuned and is the best performing model out of the 300 epochs for which
@@ -191,13 +191,13 @@ is was fine tuned.
 The given code that the author used for fine tuning. This code, however,
 did not work straight away, as there were some index errors. The fist
 index error occurred when computing the training loss. Initially, the
-training function returned *loss.DATA\[0\]*, this raised an index out of
-bound error. This error was solved by replacing *loss.DATA\[0\]* with
-*loss.DATA.item()*. Just using *loss.DATA* also worked. The other index
+training function returned `loss.DATA[0]`, this raised an index out of
+bound error. This error was solved by replacing `loss.DATA[0]` with
+`loss.DATA.item()`. Just using `loss.DATA` also worked. The other index
 error occurred when computing the testing (3-px) error. Again there was
 an index out out of bound error. This occurred because the predicted
 disparity tensors contained single dimension entries. This was remedied
-by using *torch.squeeze(&lt;tensor&gt;)*.
+by using `torch.squeeze(&lt;tensor&gt;)`.
 
 With the code now working, we could proceed with fine tuning. As
 mentioned before, the pretrained Kitti 2012 was using as a starting
@@ -241,7 +241,7 @@ It can be noted that for the Kitti data set the 3-px error is computed and for t
   [2]: #tab:results
   [Github Issue]: https://github.com/JiaRenChang/PSMNet/issues/64
   
-  # Concluding remarks
+# Concluding remarks
 
 Notably, the results in the paper could not be reproduced exactly. The
 obtained results, however, are not far off. Furthermore, it is expected
