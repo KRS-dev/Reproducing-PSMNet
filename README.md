@@ -197,7 +197,7 @@ bound error. This error was solved by replacing `loss.DATA[0]` with
 error occurred when computing the testing (3-px) error. Again there was
 an index out out of bound error. This occurred because the predicted
 disparity tensors contained single dimension entries. This was remedied
-by using `torch.squeeze(&lt;tensor&gt;)`.
+by using `torch.squeeze(<tensor>)`.
 
 With the code now working, we could proceed with fine tuning. As
 mentioned before, the pretrained Kitti 2012 was using as a starting
@@ -214,7 +214,7 @@ from the 155 epochs. Next, these models are also used for testing on the
 test set of the SceneFlow data set. The results are also given in the
 table below.
 
-<div id="tab:finetune">
+
 
 |                             | pretrained Kitti 2012 | fine tune: epoch 67 | fine tune: epoch 155 |
 |:----------------------------|:---------------------:|:-------------------:|:--------------------:|
@@ -223,7 +223,7 @@ table below.
 
 Errors for fine tuned models
 
-</div>
+
 
 It can be noted that for the Kitti data set the 3-px error is computed and for the SceneFlow data set the end point error(EPE) is computed. This is done to adhere to the format the paper uses, where EPE is only computed for the SceneFlow data set.
  
