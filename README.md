@@ -42,7 +42,7 @@ different sized features through different pooling sizes (8x8, 16x16,
 32x32, 64x64). These pooled features are led through convolutions where
 after they are up-sampled to the same HxW dimensions again. Both image’s
 features are combined into a 4D cost volume for each disparity level
-(HeightxWidthxFeaturexDisparity). The 3D CNN consists out of a multiple
+(Height x Width x Features x Disparity). The 3D CNN consists out of a multiple
 stackhourglass type 3D convolutions with residual connections. The final
 disparity is calculated using regression with the following formula
 , where *D*<sub>*max*</sub> is the maximum
