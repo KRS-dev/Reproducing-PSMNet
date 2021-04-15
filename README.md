@@ -156,7 +156,7 @@ Subsequently, both images are cropped by removing 100 pixels from the
 top and bottom, and 50 pixels from the left and the right.
 
 <figure>
-<img src="images/Steve.JPG" id="fig:externaol data" alt="Image provided by external expert" /><figcaption aria-hidden="true">Image provided by external expert</figcaption>
+<img src="images/Steve.JPG" id="fig:externaol data"  height="300" width="400" alt="Image provided by external expert" /><figcaption aria-hidden="true">Image provided by external expert</figcaption>
 </figure>
 
 The results for the pretrained SceneFlow model are given in and
