@@ -168,7 +168,7 @@ the feature extractors are trained for these type of images. Th
 
   [1]: #fig:before
   [2]: #fig:after
-  [3]: #fig: data_scene2
+  [3]: #fig:data_scene2
 
   [PSMNet Github]: https://github.com/JiaRenChang/PSMNet
   [1]: #fig:equation1
