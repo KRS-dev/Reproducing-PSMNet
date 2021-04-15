@@ -245,7 +245,7 @@ It can be noted that for the Kitti data set the 3-px error is computed and for t
 
 Notably, the results in the paper could not be reproduced exactly. The
 obtained results, however, are not far off. Furthermore, it is expected
-that increasing the batch size to 8 would still not bridge the error
+that increasing the batch size to 12 would still not bridge the error
 gap. There could be several reasons for these discrepancies, that also
 require the need for the corrections mentioned before. One of these
 could be, updated libraries that have some modifications. Furthermore, the 
