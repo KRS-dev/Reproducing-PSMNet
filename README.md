@@ -62,7 +62,7 @@ intermediate costs.
   [1]: #eq1:regression
  
  
- # Pretrained model
+# Pretrained model
 
 In this section we are trying to reproduce the results in the paper
 using the pretrained models downloaded from the [PSMNet Github][]. Due
