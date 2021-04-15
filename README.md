@@ -247,8 +247,10 @@ Notably, the results in the paper could not be reproduced exactly. The
 obtained results, however, are not far off. Furthermore, it is expected
 that increasing the batch size to 8 would still not bridge the error
 gap. There could be several reasons for these discrepancies, that also
-require the need for the corrections mentioned before. Some of these
-could be, updated libraries that have some modifications. Another reason
+require the need for the corrections mentioned before. One of these
+could be, updated libraries that have some modifications. Furthermore, the 
+pretrained models are trained using different batch sizes that we used for testing.
+this can also introduce some errors as mentioned before. Another reason
 could also be that the provided pretrained models are different than the
 ones the author used to produce the results in the paper. Due to the
 limited resources we also did not train the models ourselves. This could
