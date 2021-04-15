@@ -188,7 +188,7 @@ tuning the given pretrained Kitti 2012 model. This model is already fine
 tuned and is the best performing model out of the 300 epochs for which
 is was fine tuned.
 
-The given code that the author used for fine tuning. This code, however,
+The given code that the author used for fine tuning
 did not work straight away, as there were some index errors. The fist
 index error occurred when computing the training loss. Initially, the
 training function returned `loss.DATA[0]`, this raised an index out of
