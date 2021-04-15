@@ -168,7 +168,7 @@ the feature extractors are trained for these type of images. The SceneFlow and K
 the learned features will be different as well.
 
 <figure>
-<img src="images/crop1_09.jpg" id="fig: data_scene1" alt="Stereo pair 1 and results from SceneFlow model" /><figcaption aria-hidden="true">Stereo pair 1 and results from SceneFlow model</figcaption>
+<img src="images/crop1_09.png" id="fig: data_scene1" alt="Stereo pair 1 and results from SceneFlow model" /><figcaption aria-hidden="true">Stereo pair 1 and results from SceneFlow model</figcaption>
 </figure>
 
 <figure>
