@@ -105,7 +105,7 @@ Results using pre-trained models
 
 
 After this disappointment we dove into the code to find any mistakes.
-Little did we know there were other reprodrucer that had the same
+Little did we know there were other reprodrucers that had the same
 problem.
 
 ## 1.17 factor
