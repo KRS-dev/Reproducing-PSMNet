@@ -50,8 +50,9 @@ disparity the model can predict, *c*<sub>*d*</sub> the predicted cost
 for that disparity. This method is supposed to be more robust than
 classification .
 
-$$\\hat{d} = \\sum\_0^{D\_{max}} d\*softmax(-c\_d)
-    \\label{eq1:regression}$$
+<figure>
+<img src="images/equation1.PNG" id="fig:equation1" />
+</figure>
 
 For training purposes intermediate supervision was used with the same
 regression predicted disparity, but earlier in the 3D CNN. The training
