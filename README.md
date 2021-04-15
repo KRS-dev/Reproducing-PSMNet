@@ -55,7 +55,7 @@ intermediate costs.
 
   [Disparity to depth]: images/baseline.png {#fig:my_label}
   [Image rectification]: images/Lecture_1027_stereo_01.jpg
-  {#fig:my_label width=".6\\textwidth"}
+  {#fig:my_label}
   [Disparity map created by PSMNet. Images are from the sceneflow dataset.]:
     images/example_disparity.png {#fig:my_label width="\\textwidth"}
   [Architecture of PSMNet]: images/architecture.PNG {#fig:architecture
