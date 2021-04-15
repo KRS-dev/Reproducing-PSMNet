@@ -86,7 +86,7 @@ was modest decrease in EPE while training with a higher batchsize. The
 EPE is still far away from the 1.19 advertised in the paper and the
 batchsize jump from 4 to 12 is not going to bridge that gap.
 
-<div id="tab:results">
+
 
 | Model      |         |      SceneFlow       | Kitti 2015 | Kitti 2012 |
 |:-----------|:--------|:--------------------:|:----------:|:----------:|
@@ -97,7 +97,7 @@ batchsize jump from 4 to 12 is not going to bridge that gap.
 
 Results using pre-trained models
 
-</div>
+
 
 After this disappointment we dove into the code to find any mistakes.
 Little did we know there were other reprodrucer that had the same
