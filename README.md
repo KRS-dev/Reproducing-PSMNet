@@ -7,7 +7,9 @@ distance and baseline of the two lenses used. The depth is equal to
 focallength\*baseline/disparity so a high disparity means that the
 object is close to the camera's and low disparity means it is far away.
 
-![Disparity to depth]
+<figure>
+<img src="images/baseline.png" id="fig:my_label" alt="Disparity to depth" /><figcaption aria-hidden="true">Disparity to depth</figcaption>
+</figure>
 
 This equation does assume that the images are rectified, meaning the
 camera's are exactly parallel to each other, not rotated inwards or
@@ -61,3 +63,20 @@ intermediate costs.
   [Architecture of PSMNet]: images/architecture.PNG {#fig:architecture
   width="\\textwidth"}
   [1]: #eq1:regression {reference-type="ref" reference="eq1:regression"}
+  
+  <div id="tab:finetune">
+
+|                             | pretrained Kitti 2012 | fine tune: epoch 67 | fine tune: epoch 155 |
+|:----------------------------|:---------------------:|:-------------------:|:--------------------:|
+| Kitti 2012 set (3-px error) |         0.761         |        1.982        |        0.883         |
+| SceneFlow test set (EPE)    |         5.464         |        5.516        |        5.148         |
+
+Errors for fine tuned models
+
+</div>
+  
+  
+  
+  
+  
+  
