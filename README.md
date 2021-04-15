@@ -18,7 +18,7 @@ camera arrays need a prepossessing step rectifying the images to a
 common plane.
 
 <figure>
-<img src="images/Lecture_1027_stereo_01.jpg" id="fig:my_label" alt="Image rectification" /><figcaption aria-hidden="true">Image rectification</figcaption>
+<img src="images/Lecture_1027_stereo_01.jpg"  height="400" width="600" id="fig:my_label" alt="Image rectification" /><figcaption aria-hidden="true">Image rectification</figcaption>
 </figure>
 
 An example of a disparity map is given below. Deep learning networks
