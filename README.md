@@ -1,6 +1,6 @@
 # Introduction to disparity maps
 
-PSMNet is a Stereo Matching Network published by .... in 2018. The goal
+PSMNet is a Stereo Matching Network published by [Jia-Ren Chang and Yong-Sheng Che](https://arxiv.org/abs/1803.08669) in 2018. The goal
 of stereo matching is to find the disparity map of a left and right
 image. Disparity is in direct relation to depth through the focal
 distance and baseline of the two lenses used. The depth is equal to
@@ -18,7 +18,7 @@ camera arrays need a prepossessing step rectifying the images to a
 common plane.
 
 <figure>
-<img src="images/Lecture_1027_stereo_01.jpg" id="fig:my_label" alt="Image rectification" /><figcaption aria-hidden="true">Image rectification</figcaption>
+<img src="images/Lecture_1027_stereo_01.jpg"  height="300" width="600" id="fig:my_label" alt="Image rectification" /><figcaption aria-hidden="true">Image rectification</figcaption>
 </figure>
 
 An example of a disparity map is given below. Deep learning networks
@@ -27,7 +27,7 @@ and today we are going to discuss reproducing PSMNet, a high performing
 Pyramid network on both Sceneflow and KITTI 2012/2015 stereo data-sets.
 
 <figure>
-<img src="images/example_disparity.png" id="fig:my_label" alt="Disparity map created by PSMNet. Images are from the sceneflow dataset." /><figcaption aria-hidden="true">Disparity map created by PSMNet. Images are from the sceneflow dataset.</figcaption>
+<img src="images/example_disparity.png" id="fig:my_label" alt="Disparity map created by PSMNet. Images are from the sceneflow dataset." /><figcaption>Disparity map created by PSMNet. Images are from the sceneflow dataset.</figcaption>
 </figure>
 
 # Pyramid network
@@ -42,26 +42,26 @@ different sized features through different pooling sizes (8x8, 16x16,
 32x32, 64x64). These pooled features are led through convolutions where
 after they are up-sampled to the same HxW dimensions again. Both image’s
 features are combined into a 4D cost volume for each disparity level
-(HeightxWidthxFeaturexDisparity). The 3D CNN consists out of a multiple
+(Height x Width x Features x Disparity). The 3D CNN consists out of a multiple
 stackhourglass type 3D convolutions with residual connections. The final
 disparity is calculated using regression with the following formula
-[\[eq1:regression\]][1], where *D*<sub>*m**a**x*</sub> is the maximum
+, where *D*<sub>*max*</sub> is the maximum
 disparity the model can predict, *c*<sub>*d*</sub> the predicted cost
 for that disparity. This method is supposed to be more robust than
 classification .
 
-$$\\hat{d} = \\sum\_0^{D\_{max}} d\*softmax(-c\_d)
-    \\label{eq1:regression}$$
+<figure>
+<img src="images/equation1.PNG"  id="fig:equation1" />
+</figure>
 
 For training purposes intermediate supervision was used with the same
 regression predicted disparity, but earlier in the 3D CNN. The training
 cost was calculated as a combination of the final cost and the two
 intermediate costs.
 
-  [1]: #eq1:regression
+The published  GitHub repository by the authors can be found [here](https://github.com/JiaRenChang/PSMNet).
  
- 
- # Pretrained model
+# Pretrained model
 
 In this section we are trying to reproduce the results in the paper
 using the pretrained models downloaded from the [PSMNet Github][]. Due
@@ -119,10 +119,59 @@ the paper. This 1.17 factor was supposed to only work for the Sceneflow
 pre-trained model and we found out that was true in our case as well,
 because 1.17 factor did not decrease EPE with the KITTI 2012 pre-trained
 model. The cause of this factor is unknown to us, researchers on the
-Github page say that by training the model thems
+Github page say that by training the model themselves they could not reproduce this error and found the papers original
+EPE error of 1.19.
+
+|               Fixes               |                      |                        |
+|:---------------------------------:|:--------------------:|:----------------------:|
+|                                   | Pretrained Sceneflow | Pretrained KITTI\_2012 |
+|        align\_corners=True        |        6.463         |         4.730          |
+| align\_corners=True & 1.17 factor |        1.585         |         4.961          |
+
+Results using the fixes for the pre-trained models on Flying3d test
+data-set (EPE)
+
+A comparison of the disparity maps before and after the 1.17 factor is
+introduced is shown in the following figures [1][] and [2][].
+
+<figure>
+<img src="images/0400_ground_disp.png" id="fig:before" alt="Before the 1.17 factor. Even though the EPE of this picture might be high, the details are comparable to the disparity maps by ." /><figcaption aria-hidden="true">Before the 1.17 factor. Even though the EPE of this picture might be high, the details are comparable to the disparity maps by <span class="citation" data-cites="chang2018pyramid"></span>.</figcaption>
+</figure>
+
+<figure>
+<img src="images/0400_ground_disp_117.png" id="fig:after" alt="After introduction of the 1.17 factor. Here we should not look at the disparities above 192, because these are purposely masked out in computation." /><figcaption aria-hidden="true">After introduction of the 1.17 factor. Here we should not look at the disparities above 192, because these are purposely masked out in computation.</figcaption>
+</figure>
+
+# Generalising to external data
+
+It is also analysed how well the pretrained model generalises to
+external data. These stereo image pairs were provided by our external
+expert. These images, however, were not rectified. Furthermore, these
+images were made with a borescope of some jet engine blades. Due to the
+small probe of a borescope, the stereo images are created using prisms
+resulting in combined stereo images in one image file. One of these
+images is given in , and as can be noted the middle area is somewhat
+blurry because of the prism. This image is split through the middle.
+Subsequently, both images are cropped by removing 100 pixels from the
+top and bottom, and 50 pixels from the left and the right.
+
+<figure>
+<img src="images/Steve.JPG" id="fig:externaol data"  height="300" width="400" alt="Image provided by external expert" /><figcaption aria-hidden="true">Image provided by external expert</figcaption>
+</figure>
+
+The results for the pretrained SceneFlow model are given in and
+[\[fig: data\_scene2\]][3] respectively. It can be observed that the
+shapes of the blade can not be recognised in the disparity maps. We
+expect one of the reasons for this to be, that the images were not
+rectified. Another possible explanation for these differences is that
+the feature extractors are trained for these type of images. Th
+
+  [1]: #fig:before
+  [2]: #fig:after
+  [3]: #fig:data_scene2
 
   [PSMNet Github]: https://github.com/JiaRenChang/PSMNet
-  [1]: #eq1:regression
+  [1]: #fig:equation1
   [2]: #tab:results
   [Github Issue]: https://github.com/JiaRenChang/PSMNet/issues/64
   
