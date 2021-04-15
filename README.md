@@ -119,7 +119,56 @@ the paper. This 1.17 factor was supposed to only work for the Sceneflow
 pre-trained model and we found out that was true in our case as well,
 because 1.17 factor did not decrease EPE with the KITTI 2012 pre-trained
 model. The cause of this factor is unknown to us, researchers on the
-Github page say that by training the model thems
+Github page say that by training the model themselves they could not reproduce this error and found the papers original
+EPE error of 1.19.
+
+|               Fixes               |                      |                        |
+|:---------------------------------:|:--------------------:|:----------------------:|
+|                                   | Pretrained Sceneflow | Pretrained KITTI\_2012 |
+|        align\_corners=True        |        6.463         |         4.730          |
+| align\_corners=True & 1.17 factor |        1.585         |         4.961          |
+
+Results using the fixes for the pre-trained models on Flying3d test
+data-set (EPE)
+
+A comparison of the disparity maps before and after the 1.17 factor is
+introduced is shown in the following figures [1][] and [2][].
+
+<figure>
+<img src="images/0400_ground_disp.png" id="fig:before" alt="Before the 1.17 factor. Even though the EPE of this picture might be high, the details are comparable to the disparity maps by ." /><figcaption aria-hidden="true">Before the 1.17 factor. Even though the EPE of this picture might be high, the details are comparable to the disparity maps by <span class="citation" data-cites="chang2018pyramid"></span>.</figcaption>
+</figure>
+
+<figure>
+<img src="images/0400_ground_disp_117.png" id="fig:after" alt="After introduction of the 1.17 factor. Here we should not look at the disparities above 192, because these are purposely masked out in computation." /><figcaption aria-hidden="true">After introduction of the 1.17 factor. Here we should not look at the disparities above 192, because these are purposely masked out in computation.</figcaption>
+</figure>
+
+# Generalising to external data
+
+It is also analysed how well the pretrained model generalises to
+external data. These stereo image pairs were provided by our external
+expert. These images, however, were not rectified. Furthermore, these
+images were made with a borescope of some jet engine blades. Due to the
+small probe of a borescope, the stereo images are created using prisms
+resulting in combined stereo images in one image file. One of these
+images is given in , and as can be noted the middle area is somewhat
+blurry because of the prism. This image is split through the middle.
+Subsequently, both images are cropped by removing 100 pixels from the
+top and bottom, and 50 pixels from the left and the right.
+
+<figure>
+<img src="images/Steve.JPG" id="fig:externaol data" alt="Image provided by external expert" /><figcaption aria-hidden="true">Image provided by external expert</figcaption>
+</figure>
+
+The results for the pretrained SceneFlow model are given in and
+[\[fig: data\_scene2\]][3] respectively. It can be observed that the
+shapes of the blade can not be recognised in the disparity maps. We
+expect one of the reasons for this to be, that the images were not
+rectified. Another possible explanation for these differences is that
+the feature extractors are trained for these type of images. Th
+
+  [1]: #fig:before
+  [2]: #fig:after
+  [3]: #fig: data_scene2
 
   [PSMNet Github]: https://github.com/JiaRenChang/PSMNet
   [1]: #fig:equation1
