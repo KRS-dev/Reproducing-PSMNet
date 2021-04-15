@@ -105,7 +105,7 @@ Results using pre-trained models
 
 
 After this disappointment we dove into the code to find any mistakes.
-Little did we know there were other reprodrucers that had the same
+Little did we know there were other reproducers that had the same
 problem.
 
 ## 1.17 factor
@@ -119,7 +119,7 @@ A second issue that some researchers had trying to use the pre-trained
 was an overall decrease in output disparity. As described in this
 [Github Issue][] multiplying the output disparity by a factor 1.17
 decreased the EPE by a significant margin. In our case this worked as
-well and we managed to produce an EPE of 1.52 compared to the 1.19 in
+well and we managed to produce an EPE of 1.585 compared to the 1.19 in
 the paper. This 1.17 factor was supposed to only work for the Sceneflow
 pre-trained model and we found out that was true in our case as well,
 because 1.17 factor did not decrease EPE with the KITTI 2012 pre-trained
