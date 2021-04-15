@@ -82,7 +82,12 @@ with Google Colab were it was possible possible to train with a
 batchsize of 4.
 
 The results of these experiments are plotted below in table [1][]. There
-was modest decrease in EPE while training with a higher batchsize. The
+was modest decrease in EPE while training with a higher batchsize.  One 
+possible explanantion for this could be the use of batch normalization.
+The accuracy of batch normalization degrades for small batches, which could
+possibly lead to a higher error.
+
+Nonetheless, the
 EPE is still far away from the 1.19 advertised in the paper and the
 batchsize jump from 4 to 12 is not going to bridge that gap.
 
@@ -236,4 +241,15 @@ It can be noted that for the Kitti data set the 3-px error is computed and for t
   [2]: #tab:results
   [Github Issue]: https://github.com/JiaRenChang/PSMNet/issues/64
   
-  
+  # Concluding remarks
+
+Notably, the results in the paper could not be reproduced exactly. The
+obtained results, however, are not far off. Furthermore, it is expected
+that increasing the batch size to 8 would still not bridge the error
+gap. There could be several reasons for these discrepancies, that also
+require the need for the corrections mentioned before. Some of these
+could be, updated libraries that have some modifications. Another reason
+could also be that the provided pretrained models are different than the
+ones the author used to produce the results in the paper. Due to the
+limited resources we also did not train the models ourselves. This could
+give a better indication if the results in the paper can be reproduced.
