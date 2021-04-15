@@ -1,41 +1,84 @@
-# Stereo Matching with PSMNet
-
-test
-
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/KRS-dev/Reproducing-PSMNet/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```{=tex}
+\section{Introduction to disparity maps}
 ```
+PSMNet is a Stereo Matching Network published by .... in 2018. The goal
+of stereo matching is to find the disparity map of a left and right
+image. Disparity is in direct relation to depth through the focal
+distance and baseline of the two lenses used. The depth is equal to
+focallength\*baseline/disparity so a high disparity means that the
+object is close to the camera's and low disparity means it is far away.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+```{=tex}
+\begin{figure}[H]
+    \centering
+    \includegraphics{images/baseline.png}
+    \caption{Disparity to depth}
+    \label{fig:my_label}
+\end{figure}
+```
+This equation does assume that the images are rectified, meaning the
+camera's are exactly parallel to each other, not rotated inwards or
+outwards. Normal stereo camera setups do have this parallelism, but some
+camera arrays need a prepossessing step rectifying the images to a
+common plane.
 
-### Jekyll Themes
+```{=tex}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.6\textwidth]{images/Lecture_1027_stereo_01.jpg}
+    \caption{Image rectification}
+    \label{fig:my_label}
+\end{figure}
+```
+An example of a disparity map is given below. Deep learning networks
+have been used for a while to learn disparity maps from stereo images
+and today we are going to discuss reproducing PSMNet, a high performing
+Pyramid network on both Sceneflow and KITTI 2012/2015 stereo data-sets.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/KRS-dev/Reproducing-PSMNet/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```{=tex}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/example_disparity.png}
+    \caption{Disparity map created by PSMNet. Images are from the sceneflow dataset.}
+    \label{fig:my_label}
+\end{figure}
+```
+```{=tex}
+\FloatBarrier
+```
+```{=tex}
+\section{Pyramid network}
+```
+```{=tex}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/architecture.PNG}
+    \caption{Architecture of PSMNet}
+    \label{fig:architecture}
+\end{figure}
+```
+PSMNet consists of two main parts, the pyramid structured feature
+extractor and a 3D CNN. The pyramid feature extractor tries to find a
+different sized features through different pooling sizes (8x8, 16x16,
+32x32, 64x64). These pooled features are led through convolutions where
+after they are up-sampled to the same HxW dimensions again. Both image's
+features are combined into a 4D cost volume for each disparity level
+(HeightxWidthxFeaturexDisparity). The 3D CNN consists out of a multiple
+stackhourglass type 3D convolutions with residual connections. The final
+disparity is calculated using regression with the following formula
+`\ref{eq1:regression}`{=tex}, where $D_{max}$ is the maximum disparity
+the model can predict, $c_d$ the predicted cost for that disparity. This
+method is supposed to be more robust than classification
+`\cite{chen2017deeplab}`{=tex}.
 
-### Support or Contact
+`\begin{equation}
+    \hat{d} = \sum_0^{D_{max}} d*softmax(-c_d)
+    \label{eq1:regression}
+\end{equation}`{=tex}
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+For training purposes intermediate supervision was used with the same
+regression predicted disparity, but earlier in the 3D CNN. The training
+cost was calculated as a combination of the final cost and the two
+intermediate costs.
+
+\
