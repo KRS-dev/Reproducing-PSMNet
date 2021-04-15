@@ -222,7 +222,7 @@ Errors for fine tuned models
 It can be noted that for the Kitti data set the 3-px error is computed and for the SceneFlow data set the end point error(EPE) is computed. This is done to adhere to the format the paper uses, where EPE is only computed for the SceneFlow data set.
  
  From these results it can be observed that the pretrained (input) model does outperform the Kitti 2012 data set. Since this was the best model provided by the author from all the fine tuned epochs, this result coherent. Additionally, it can be noticed that the the model for epoch 155 has a slightly higher error. The error for the worst performing model is almost three times as high as the input model.
- Since the model is fine tuned on the Kitti data set (overfitted), it is expected to have a higher error for the SceneFlow test set. This can also be concluded from the input model error, which is now higher that the error of the epoch 155 model. For the worst performing model, that is epoch 67, the error is again the highest. A possible explanation for this is that the hyper parameters are off for this epoch, or the model
+ Since the model is fine tuned on the Kitti data set (overfitted), it is expected to have a higher error for the SceneFlow test set. This can also be concluded from the input model error, which is now higher that the error of the epoch 155 model. For the worst performing model, that is epoch 67, the error is again the highest. A possible explanation for this is that the hyper parameters are off for this epoch, or the model underfits a lot. 
 
 [4]: http://www.cvlibs.net/datasets/kitti/eval_stereo_flow.php?benchmark=stereo
 
