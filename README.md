@@ -59,7 +59,6 @@ regression predicted disparity, but earlier in the 3D CNN. The training
 cost was calculated as a combination of the final cost and the two
 intermediate costs.
 
-The published  GitHub repository by the authors can be found [here](https://github.com/JiaRenChang/PSMNet).
  
 # Pretrained model
 
