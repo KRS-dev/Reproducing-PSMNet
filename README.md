@@ -51,7 +51,7 @@ for that disparity. This method is supposed to be more robust than
 classification .
 
 <figure>
-<img src="images/equation1.PNG" id="fig:equation1" />
+<img src="images/equation1.PNG"  id="fig:equation1" />
 </figure>
 
 For training purposes intermediate supervision was used with the same
